@@ -7,9 +7,10 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN mkdir /scripts
 COPY files/ /django-workload/
 
-RUN apt-get update
-RUN apt-get install -y git python3-virtualenv python3-dev  \
-        python-pip libmemcached-dev zlib1g-dev netcat-openbsd
+RUN apt-get update && apt-get install software-properties-common -y
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt-get install -y git python3-virtualenv python3.8-dev  \
+        python3.8-pip libmemcached-dev zlib1g-dev netcat-openbsd
 RUN cd /django-workload/django-workload                       \
     && python3 -m virtualenv -p python3  venv                 \
     && . venv/bin/activate                                    \

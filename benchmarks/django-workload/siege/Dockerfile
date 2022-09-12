@@ -1,4 +1,4 @@
-FROM cloudsuitetest/siege:4.0.3rc3
+FROM cloudsuitetest/siege:4.1.5
   
 ENV DEBIAN_FRONTEND noninteractive
 #ENV http_proxy http://proxy-address:proxy-port
